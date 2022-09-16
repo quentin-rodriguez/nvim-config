@@ -1,3 +1,4 @@
+local fn = vim.fn
 local M = {}
 
 function M.join(...)
@@ -6,13 +7,11 @@ end
 
 M.home = vim.env.HOME
 
-M.share = vim.fn.stdpath('data')
+M.config = fn.stdpath("config")
 
-M.config = vim.fn.stdpath("config")
+M.plugins = M.join(fn.stdpath('data'), 'site/pack/packer/start/packer.nvim')
 
-M.plugin_path = M.join(M.share, 'site/pack/packer/start/packer.nvim')
-
-M.compile_path = M.join(M.share, 'site/pack/loader/start/packer.nvim/lua/packer_compiled.lua')
+M.compile = M.join(fn.stdpath('data'), 'site/pack/loader/start/packer.nvim/lua/packer_compiled.lua')
 
 
 return M
