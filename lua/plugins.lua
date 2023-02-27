@@ -1,19 +1,27 @@
-local paths = require "core.paths"
-local fn    = vim.fn
+local fn = vim.fn
 
 local plugins = {
-    { import = "lsp" }
+    { import = "lsp" },
+    { import = "gui" },
 }
 
 
 local opts = {
     root = paths.plugins,
+    defaults = {
+        lazy = false,
+        version = "*",
+    },
     lockfile = paths.lockfile,
     git = {
         log = { "--since=3 days ago" },
         timeout = 300,
         url_format = "https://github.com/%s.git",
         filter = true
+    },
+    install = {
+        missing = true,
+        colorscheme = { "nightly" },
     },
     checker = {
         enabled = false,
@@ -79,11 +87,6 @@ local opts = {
 }
 
 if fn.isdirectory(paths.plugin_manager) == 0 then
-   vim.notify(
-        "Installing lazy.nvim...",
-        vim.log.levels.INFO
-    )
-   
    fn.system {
         "git",
         "clone",
@@ -94,10 +97,10 @@ if fn.isdirectory(paths.plugin_manager) == 0 then
    }
 end
 
-vim.opt.runtimepath:prepend(paths.plugin_manager)
+vim.opt.rtp:prepend(paths.plugin_manager)
 
-local status_ok, lazy = pcall(require, "lazy")
-if not status_ok then
+local present, lazy = pcall(require, "lazy")
+if not present then
     return
 end
 

@@ -1,7 +1,8 @@
 utils.append_opts {
     opt = {
         cursorline = false,
-        
+        termguicolors = true,
+
         relativenumber = false,
 	    number = true,
         numberwidth = 2,
