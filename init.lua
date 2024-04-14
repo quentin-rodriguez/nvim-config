@@ -1,5 +1,1 @@
-require "core.utils"
-require "core.options"
-require "core.paths"
-require "core.icons"
-require "plugins"
+require "filivim.core"
