@@ -9,7 +9,12 @@ return {
       local icons = require("filivim.utils.icons")
 
       require("neo-tree").setup({
+         enable_normal_mode_for_inputs = false,
          popup_border_style = "rounded",
+         window = {
+            position = "left",
+            width = math.floor(vim.fn.winwidth(0) * 0.15)
+         },
          icon = {
             folder_empty = "f413",
             folder_closed = "f4d3",
@@ -34,16 +39,6 @@ return {
                hide_dotfiles = true,
                hide_gitignored = false,
                hide_hidden = false
-            }
-         },
-         mappings = {
-            ["<cr>"] = "open",
-            ["<esc>"] = "cancel",
-            ["a"] = {
-               "add",
-               config = {
-                  show_path = "relative"
-               }
             }
          }
       })

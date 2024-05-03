@@ -1,4 +1,4 @@
-local icons = {}
+_G.icons = {}
 
 icons.git = {
    added = "f457",

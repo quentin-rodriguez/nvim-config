@@ -1,4 +1,3 @@
-local git = require "filivim.utils.git"
 local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not (vim.uv or vim.loop).fs_stat(lazy_path) then

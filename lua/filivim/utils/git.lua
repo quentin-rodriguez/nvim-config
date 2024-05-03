@@ -1,4 +1,4 @@
-local git = {}
+_G.git = {}
 local system  = vim.fn.system
 local flatten = vim.tbl_flatten
 
