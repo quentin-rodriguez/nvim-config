@@ -6,13 +6,8 @@ return {
       require("lualine").setup({
          options = {
             icons_enabled = true,
-            theme = "material",
+            theme = "night-owl",
             globalstatus = true,
-            disabled_filetypes = {
-               statusline = {
-                  "neo-tree"
-               }
-            }
          }
       })
    end

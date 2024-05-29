@@ -11,4 +11,30 @@ end
 
 vim.opt.rtp:prepend(lazy_path)
 
-require("lazy").setup("filivim.plugins")
+require("lazy").setup("filivim.plugins", {
+   performance = {
+      rtp = {
+         reset = false,
+         disabled_plugins = {
+            'netrw',
+            'netrwPlugin',
+            'netrwSettings',
+            'netrwFileHandlers',
+            'gzip',
+            'zip',
+            'zipPlugin',
+            'tar',
+            'tarPlugin',
+            'getscript',
+            'getscriptPlugin',
+            'vimball',
+            'vimballPlugin',
+            '2html_plugin',
+            'logipat',
+            'rrhelper',
+            'spellfile_plugin',
+            'matchit',
+         }
+      }
+   }
+})

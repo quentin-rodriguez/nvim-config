@@ -1,13 +1,10 @@
 filivim.append_opts({
-   g = {
-      mapleader = " "
-   },
    o = {
       cmdheight = 0
    },
    opt = {
       completeopt = { "menu", "menuone", "noselect" },
-      termguicolors = false,
+      termguicolors = true,
       showmode = false,
       relativenumber = true,
       number = true,

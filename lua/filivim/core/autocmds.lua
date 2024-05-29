@@ -4,6 +4,8 @@ local function augroup(name)
    return vim.api.nvim_create_augroup(name, { clear = true })
 end
 
+vim.cmd.colorscheme "night-owl"
+
 create_autocmd({ "VimResized" }, {
    group = augroup("resize"),
    callback = function()

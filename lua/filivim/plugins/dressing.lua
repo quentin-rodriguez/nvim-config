@@ -1,18 +1,21 @@
 return {
    "stevearc/dressing.nvim",
    event = "VeryLazy",
-   lazy = true,
-   init = function()
-      local lazy = require("lazy")
-
-      vim.ui.input = function(...)
-         lazy.load({ plugins = { "dressing.nvim" }})
-         vim.ui.input(...)
-      end
-
-      vim.ui.select = function(...)
-         lazy.load({ plugins = { "dressing.nvim" }})
-         vim.ui.select(...)
-      end
-   end
+   opts = {
+      input = {
+         enabled = true,
+         win_options = {
+            winblend  = 0
+         }
+      },
+      select = {
+         enabled = true,
+         backend = { "telescope", "builtin" },
+         builtin = {
+            win_options = {
+               winblend = 0
+            }
+         }
+      }
+   }
 }
