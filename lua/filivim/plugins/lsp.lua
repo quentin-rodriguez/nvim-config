@@ -13,27 +13,23 @@ return {
       "hrsh7th/nvim-cmp",
       event = "InsertEnter",
       dependencies = {
+         "hrsh7th/cmp-vsnip",
+         "hrsh7th/vim-vsnip",
          "hrsh7th/cmp-nvim-lua",
          "hrsh7th/cmp-nvim-lsp",
          "hrsh7th/cmp-path",
          "hrsh7th/cmp-buffer",
-         "L3MON4D3/LuaSnip",
-         "rafamadriz/friendly-snippets",
          "onsails/lspkind.nvim"
       },
       config = function()
          local cmp = require("cmp")
          local lspkind = require("lspkind")
 
-
-
-         require("luasnip.loaders.from_vscode").lazy_load()
-
          cmp.setup({
             formatting = {
                format = lspkind.cmp_format({
                   mode = "symbol_text",
-                  maxwidth = 35,
+                  maxwidth = 50,
                   show_labelDetails = true
                })
             },
@@ -42,7 +38,7 @@ return {
             },
             snippet = {
                expand = function(args)
-                  require("luasnip").lsp_expand(args.body)
+                  vim.fn["vsnip#anonymous"](args.body)
                end
             },
             mapping = cmp.mapping.preset.insert({
@@ -56,6 +52,7 @@ return {
                })
             }),
             sources = cmp.config.sources({
+               { name = "vsnip" },
                { name = "nvim_lsp" },
                { name = "nvim_lua"},
                { name = "path" },

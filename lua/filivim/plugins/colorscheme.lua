@@ -1,15 +1,13 @@
 return {
    {
-      "oxfist/night-owl.nvim",
-      name = "night-owl",
+      "catppuccin/nvim",
+      name = "catppuccin",
       lazy = false,
       priority = 1000,
       opts = {
-         bold = true,
-         italics = true,
-         underline = true,
-         undercurl = true,
-         transparent_background = false,
+         flavour = "mocha",
+         transparent_background = true,
+         term_colors = false
       }
    }
 }
