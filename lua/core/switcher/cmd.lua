@@ -1,22 +1,22 @@
 local M = {}
 
-local fn = vim.fn
-local fs = vim.fs
-local profiles_dir = fn.stdpath("config") .. "/lua/profiles"
+local config = require('core.switcher.config')
 
-function M.autocomplete(arg)
-    local profiles = vim.split(fn.glob(profiles_dir .. "/*"), "\n")
-
-    return vim.iter(profiles)
-            :map(function(profile) return fs.basename(profile) end)
-            :filter(function(profile) return profile:match("^" .. arg) end) 
-            :totable()
+function M.autocomplete(part)
+  return vim
+    .iter(config.list())
+    :filter(function(conf)
+      return conf:match('^' .. part)
+    end)
+    :totable()
 end
 
 function M.execute(args)
-    local choose_profile = args.fargs[1]
-    vim.notify(choose_profile)
-end
+  local profile = args.fargs[1]
 
+  config.save(profile)
+  config.reload()
+  vim.notify('Reload profile: ' .. profile)
+end
 
 return M

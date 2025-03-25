@@ -1,9 +1,12 @@
-require("core.switcher.lazy")("elixir")
+local config = require("core.switcher.config")
 
-local cmd = require("core.switcher.cmd")
+config.bootstrap()
+config.load()
 
-vim.api.nvim_create_user_command("Switch", cmd.execute, {
+vim.api.nvim_create_user_command("Switch", function ()
+
+end, {
     desc = "Switch profile",
     nargs = 1,
-    complete = cmd.autocomplete
+    complete = config.list
 })

@@ -1,3 +1,7 @@
+vim.o.showtabline = 2
+vim.opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'
+
+
 -- filivim.append_opts({
 --    o = {
 --       cmdheight = 0,
@@ -15,4 +19,3 @@
 --       splitright = true
 --    }
 -- })
-
