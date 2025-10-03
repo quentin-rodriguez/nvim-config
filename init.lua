@@ -1,9 +1,5 @@
-require("core.switcher")
-require("core.options")
+require("core")
 
-
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
+require("utils.logger").debug("PD!")
 
 
