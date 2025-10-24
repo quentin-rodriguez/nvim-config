@@ -1,51 +1,49 @@
 return {
   {
+    "nvim-lualine/lualine.nvim",
+    event = "BufEnter",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require('lualine').setup({
+        options = {
+          icons_enabled = true,
+          theme = 'catppuccin',
+          globalstatus = true,
+        },
+      })
+    end
+  },
+  {
+    "karb94/neoscroll.nvim",
+    opts = {
+      hide_cursor = false,
+      stop_eof = true
+    }
+  },
+  {
     "nanozuki/tabby.nvim",
     event = "VimEnter",
     dependencies = "nvim-tree/nvim-web-devicons"
   },
   {
-    'rcarriga/nvim-notify',
-    init = function()
-      vim.notify = require('notify')
-    end,
+    "rcarriga/nvim-notify",
+    init = function() require("utils.logger").setup() end,
     opts = {
       fps = 30,
       timeout = 2500,
       render = "minimal",
       stages = "slide"
     }
+  },
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    lazy = false,
+    priority = 1000,
+    opts = {
+      flavour = 'mocha',
+      transparent_background = true,
+      term_colors = false,
+    }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
--- return {
---   'romgrk/barbar.nvim',
---   dependencies = {
---     'lewis6991/gitsigns.nvim',
---     'nvim-tree/nvim-web-devicons',
---   },
---   init = function()
---     vim.g.barbar_auto_setup = false
---   end,
---   opts = {
---     sidebar_filetypes = {
---       ['neo-tree'] = {
---         event = 'BufWipeout',
---         text = 'File Explorer',
---         align = 'center',
---       },
---     },
---   },
--- }
