@@ -1,0 +1,11 @@
+[tools]
+lua = "latest"
+stylua = "latest"
+selene = "latest"
+
+[alias]
+selene = "https://github.com/quentin-rodriguez/mise-selene.git"
+
+[tasks.format]
+description = "Format lua scripts"
+run = "stylua init.lua lua/"

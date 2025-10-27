@@ -10,5 +10,4 @@ function M.key_of(tbl, target)
   return nil
 end
 
-
 return M

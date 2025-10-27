@@ -1,8 +1,8 @@
 return {
   {
-    "nvim-lualine/lualine.nvim",
-    event = "BufEnter",
-    dependencies = "nvim-tree/nvim-web-devicons",
+    'nvim-lualine/lualine.nvim',
+    event = 'BufEnter',
+    dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
       require('lualine').setup({
         options = {
@@ -11,29 +11,31 @@ return {
           globalstatus = true,
         },
       })
-    end
+    end,
   },
   {
-    "karb94/neoscroll.nvim",
+    'karb94/neoscroll.nvim',
     opts = {
       hide_cursor = false,
-      stop_eof = true
-    }
+      stop_eof = true,
+    },
   },
   {
-    "nanozuki/tabby.nvim",
-    event = "VimEnter",
-    dependencies = "nvim-tree/nvim-web-devicons"
+    'nanozuki/tabby.nvim',
+    event = 'VimEnter',
+    dependencies = 'nvim-tree/nvim-web-devicons',
   },
   {
-    "rcarriga/nvim-notify",
-    init = function() require("utils.logger").setup() end,
+    'rcarriga/nvim-notify',
+    init = function()
+      require('utils.logger').setup()
+    end,
     opts = {
       fps = 30,
-      timeout = 2500,
-      render = "minimal",
-      stages = "slide"
-    }
+      timeout = 10000,
+      render = 'minimal',
+      stages = 'slide',
+    },
   },
   {
     'catppuccin/nvim',
@@ -44,6 +46,6 @@ return {
       flavour = 'mocha',
       transparent_background = true,
       term_colors = false,
-    }
-  }
+    },
+  },
 }
