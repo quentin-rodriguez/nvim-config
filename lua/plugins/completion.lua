@@ -1,32 +1,32 @@
 return {
    {
-    'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
     dependencies = {
-      'hrsh7th/cmp-vsnip',
-      'hrsh7th/vim-vsnip',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-      'onsails/lspkind.nvim',
+      "hrsh7th/cmp-vsnip",
+      "hrsh7th/vim-vsnip",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "onsails/lspkind.nvim",
     },
     config = function()
-      local cmp = require('cmp')
-      local lspkind = require('lspkind')
+      local cmp = require("cmp")
+      local lspkind = require("lspkind")
 
       cmp.setup({
         formatting = {
           format = lspkind.cmp_format({
-            mode = 'symbol_text',
+            mode = "symbol_text",
             maxwidth = 50,
             show_labelDetails = true,
           }),
         },
         completion = {
-          completeopt = 'menu,menuone,noinsert',
+          completeopt = "menu,menuone,noinsert",
         },
         snippet = {
           expand = function(args)
-            vim.fn['vsnip#anonymous'](args.body)
+            vim.fn["vsnip#anonymous"](args.body)
           end,
         },
         mapping = cmp.mapping.preset.insert({
