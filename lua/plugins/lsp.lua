@@ -10,11 +10,11 @@ return {
       local lspconfig = require("lspconfig")
       local mason_lspconfig = require("mason-lspconfig")
 
-      local success, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+      local success, cmp = pcall(require, "blink.cmp")
       local capabilities = vim.lsp.protocol.make_client_capabilities()
 
       if success then
-        capabilities = cmp_lsp.default_capabilities()
+        capabilities = cmp.get_lsp_capabilities(capabilities)
       end
 
       local on_attach = function(_, bufnr)
@@ -29,17 +29,11 @@ return {
 
         handlers = {
           function(server_name)
-            lspconfig[server_name].setup({
-              on_attach = on_attach,
-              capabilities = capabilities
-            })
-          end,
-
-          lua_ls = function()
-            lspconfig.lua_ls.setup({
-              on_attach = on_attach,
-              capabilities = capabilities
-            })
+            require("langs." .. server_name)(
+              lspconfig,
+              on_attach,
+              capabilities
+            )
           end,
         }
       })

@@ -1,50 +1,51 @@
 return {
-   {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      "hrsh7th/cmp-vsnip",
-      "hrsh7th/vim-vsnip",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-path",
-      "onsails/lspkind.nvim",
-    },
-    config = function()
-      local cmp = require("cmp")
-      local lspkind = require("lspkind")
-
-      cmp.setup({
-        formatting = {
-          format = lspkind.cmp_format({
-            mode = "symbol_text",
-            maxwidth = 50,
-            show_labelDetails = true,
-          }),
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = {
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } }
+      }
+    }
+  },
+  {
+    "saghen/blink.cmp",
+    dependencies = "rafamadriz/friendly-snippets",
+    versiom = "1.*",
+    opts = {
+      fuzzy = {
+        implementation = "lua",
+        sorts = {
+          "exact",
+          "score",
+          "sort_text"
+        }
+      },
+      completion = {
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 200,
         },
-        completion = {
-          completeopt = "menu,menuone,noinsert",
+        ghost_text = {
+          enabled = true,
+          show_with_menu = true,
+        }
+      },
+      sources = {
+        default = {
+          "lazydev",
+          "lsp",
+          "path",
+          "snippets"
         },
-        snippet = {
-          expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-          end,
-        },
-        mapping = cmp.mapping.preset.insert({
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm({
-            select = false,
-            behavior = cmp.ConfirmBehavior.Replace,
-          }),
-        }),
-        sources = cmp.config.sources({
-          { name = 'vsnip' },
-          { name = 'nvim_lsp' },
-          { name = 'path' },
-        }),
-      })
-    end,
+        providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 100,
+          }
+        }
+      }
+    }
   }
 }
