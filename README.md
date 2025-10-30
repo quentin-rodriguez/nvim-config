@@ -1,6 +1,7 @@
 # Nvim Config
 
-![](https://img.shields.io/badge/Neovim -0.10.4-green.svg?style=flat-square&logo=Neovim)
+![https://neovim.io/](https://img.shields.io/badge/Neovim-0.11.4-25c600?style=for-the-badge&labelColor=%23555555&logo=neovim&cacheSeconds=10000 "Neovim")
+![https://www.lua.org](https://img.shields.io/badge/Lua-5.4.8-0019c6?style=for-the-badge&labelColor=%23555555&logo=lua&cacheSeconds=10000 "Lua")
 
 ## Plugins
 
