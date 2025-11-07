@@ -4,6 +4,7 @@ return {
     ft = "lua",
     opts = {
       library = {
+        { path = "snacks.nvim" },
         { path = "${3rd}/luv/library", words = { "vim%.uv" } }
       }
     }

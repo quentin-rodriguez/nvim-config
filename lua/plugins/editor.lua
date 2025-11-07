@@ -88,5 +88,12 @@ return {
       telescope.load_extension("ui-select")
       telescope.load_extension("projects")
     end,
+  },
+  {
+    "folke/trouble.nvim",
+    cmd = "Trouble",
+    opts = {
+      auto_preview = true
+    }
   }
 }

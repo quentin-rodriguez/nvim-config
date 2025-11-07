@@ -2,14 +2,14 @@ local fn = vim.fn
 local lazy_repo = 'https://github.com/folke/lazy.nvim.git'
 local lazy_path = fn.stdpath('data') .. '/lazy/lazy.nvim'
 
-local logger = require('utils.logger')
-
-if not (vim.uv or vim.loop).fs_stat(lazy_path) then
-  local out =
-    fn.system({ 'git', 'clone', '--filter=blob:none', lazy_repo, lazy_path })
+if not vim.uv.fs_stat(lazy_path) then
+  local out = fn.system({ 'git', 'clone', '--filter=blob:none', lazy_repo, lazy_path })
 
   if vim.v.shell_error ~= 0 then
-    logger.fatal('Failed to clone lazy.nvim repo: ' .. out)
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim repo:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+    }, true, {})
   end
 end
 

@@ -7,6 +7,7 @@ return {
       "mason-org/mason-lspconfig.nvim",
     },
     config = function()
+      local fs = require("utils.fs")
       local lspconfig = require("lspconfig")
       local mason_lspconfig = require("mason-lspconfig")
 
@@ -22,6 +23,12 @@ return {
 
 
 
+      end
+
+
+
+      for _, v in ipairs(vim.fn.glob("~/.config/nvim/lua/langs/*.lua", true, true)) do
+        Snacks.notify.warn(vim.fs.basename(v))
       end
 
       mason_lspconfig.setup({

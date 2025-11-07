@@ -1,51 +1,58 @@
 return {
-  {
-    'nvim-lualine/lualine.nvim',
-    event = 'BufEnter',
-    dependencies = 'nvim-tree/nvim-web-devicons',
-    config = function()
-      require('lualine').setup({
-        options = {
-          icons_enabled = true,
-          theme = 'catppuccin',
-          globalstatus = true,
-        },
-      })
-    end,
-  },
-  {
-    'karb94/neoscroll.nvim',
-    opts = {
-      hide_cursor = false,
-      stop_eof = true,
-    },
-  },
+---  {
+   -- 'nvim-lualine/lualine.nvim',
+    --event = 'BufEnter',
+    --dependencies = 'nvim-tree/nvim-web-devicons',
+    --opts = {
+     -- options = {
+       -- icons_enabled = true,
+        --theme = 'catppuccin',
+        --globalstatus = true,
+      --},
+    --}
+  --},
   {
     'nanozuki/tabby.nvim',
     event = 'VimEnter',
     dependencies = 'nvim-tree/nvim-web-devicons',
   },
   {
-    'rcarriga/nvim-notify',
-    init = function()
-      require('utils.logger').setup()
-    end,
-    opts = {
-      fps = 30,
-      timeout = 10000,
-      render = 'minimal',
-      stages = 'slide',
-    },
-  },
-  {
-    'catppuccin/nvim',
-    name = 'catppuccin',
+    "catppuccin/nvim",
+    name = "catppuccin",
     lazy = false,
     priority = 1000,
     opts = {
-      flavour = 'mocha',
+      flavour = "mocha",
       transparent_background = true,
       term_colors = false,
     },
   },
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      explorer = {
+        enabled = true,
+        replace_netrw = false,
+        trash = false,
+      },
+      notifier = {
+        enabled = true,
+        timeout = 5000,
+        level = vim.log.levels.INFO,
+        style = "fancy",
+      },
+      picker = {
+        sources = {
+          explorer = {
+            layout = {
+              preset = "sidebar",
+              preview = false,
+            }
+          }
+        }
+      }
+    }
+  }
 }

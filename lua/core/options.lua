@@ -1,13 +1,13 @@
 local g = vim.g
-local o = vim.o
 local opt = vim.opt
+
+vim.uv = vim.uv or vim.loop
 
 opt.termguicolors = true
 opt.cursorline = true
 opt.number = true
 opt.relativenumber = true
 opt.completeopt = 'menuone,noselect,noinsert,preview'
-opt.sessionoptions = 'curdir,folds,globals,help,tabpages,terminal,winsize'
 
 opt.expandtab = true
 opt.smartindent = true
@@ -16,6 +16,31 @@ opt.tabstop = 4
 
 opt.mouse = 'a'
 
-o.showtabline = 2
+opt.showtabline = 2
+opt.updatetime = 200
 
--- vim.o.showtabline = 2
+opt.sessionoptions = {
+  "buffers",
+  "curdir",
+  "tabpages",
+  "winsize",
+  "globals",
+  "skiprtp",
+  "folds",
+}
+
+vim.diagnostic.config({
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  float = {
+    border = "rounded",
+    source = "if_many",
+  },
+  virtual_text = {
+    prefix = "●",
+    spacing = 2,
+  }
+})
+
