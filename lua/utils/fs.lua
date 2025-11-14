@@ -6,8 +6,12 @@ function M.join(...)
   return vim.fs.normalize(table.concat({ ... }, '/'))
 end
 
-function M.glob(expr)
-  return vim.split(fn.glob(expr), '\n', { trimempty = true })
+function M.glob(expr, mods)
+  local files = fn.glob(expr, false, true)
+
+  return vim.tbl_map(function(file)
+    return fn.fnamemodify(file, mods)
+  end, files)
 end
 
 function M.is_file(path)

@@ -6,6 +6,7 @@ end
 
 vim.cmd.colorscheme('catppuccin')
 
+
 autocmd("VimResized", {
   group = augroup("resize"),
   callback = function()

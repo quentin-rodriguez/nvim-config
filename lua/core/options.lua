@@ -3,12 +3,20 @@ local opt = vim.opt
 
 vim.uv = vim.uv or vim.loop
 
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+
 opt.termguicolors = true
 opt.cursorline = true
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
 opt.completeopt = 'menuone,noselect,noinsert,preview'
 
+opt.wrap = true
+opt.list = true
+opt.ruler = true
+opt.undofile = true
+opt.swapfile = false
 opt.expandtab = true
 opt.smartindent = true
 opt.shiftwidth = 4
@@ -16,8 +24,8 @@ opt.tabstop = 4
 
 opt.mouse = 'a'
 
-opt.showtabline = 2
-opt.updatetime = 200
+opt.showtabline = 0
+opt.updatetime = 100
 
 opt.sessionoptions = {
   "buffers",
@@ -27,6 +35,8 @@ opt.sessionoptions = {
   "globals",
   "skiprtp",
   "folds",
+  "help",
+  "terminal",
 }
 
 vim.diagnostic.config({

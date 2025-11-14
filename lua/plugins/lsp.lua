@@ -7,9 +7,8 @@ return {
       "mason-org/mason-lspconfig.nvim",
     },
     config = function()
-      local fs = require("utils.fs")
+      local lsp = require("utils.lsp")
       local lspconfig = require("lspconfig")
-      local mason_lspconfig = require("mason-lspconfig")
 
       local success, cmp = pcall(require, "blink.cmp")
       local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -25,18 +24,12 @@ return {
 
       end
 
-
-
-      for _, v in ipairs(vim.fn.glob("~/.config/nvim/lua/langs/*.lua", true, true)) do
-        Snacks.notify.warn(vim.fs.basename(v))
-      end
-
-      mason_lspconfig.setup({
-        ensure_installed = { 'lua_ls' },
+      require("mason-lspconfig").setup({
+        ensure_installed = lsp.langs(),
 
         handlers = {
           function(server_name)
-            require("langs." .. server_name)(
+            require("lsp." .. server_name)(
               lspconfig,
               on_attach,
               capabilities

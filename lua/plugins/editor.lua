@@ -30,22 +30,6 @@ return {
     }
   },
   {
-    "ahmedkhalf/project.nvim",
-    main = "project_nvim",
-    opts = {
-      manual_mode = false,
-      show_hidden = true,
-      silent_chdir = true,
-      patterns = {
-        '.svn',
-        '.git',
-        '.tool-versions',
-        'Makefile',
-        'mise.toml',
-      },
-    }
-  },
-  {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
