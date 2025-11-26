@@ -1,5 +1,15 @@
 return {
   {
+    "tamago324/lir.nvim",
+    event = "VimEnter",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+    cmd = {},
+    opts = {},
+  },
+  {
     "romgrk/barbar.nvim",
     event = "VimEnter",
     dependencies = {
@@ -45,7 +55,7 @@ return {
       insert_at_end = true,
       clickable = false,
       sidebar_filetypes = {
-        ["carbon"] = {
+        Carbon = {
           text = "Explorer",
           align = "center"
         },
@@ -75,26 +85,6 @@ return {
         globalstatus = true,
       },
     }
-  },
-  {
-    "SidOfc/carbon.nvim",
-    dependencies = "nvim-tree/nvim-web-devicons",
-    build = ":Lexplore",
-    cmd = {
-      "Carbon",
-      "Lcarbon",
-      "Lexplore",
-      "Rcarbon",
-      "Rexplore",
-      "ToggleSidebarCarbon",
-      "Fcarbon",
-    },
-    opts = {
-      auto_open = true,
-      compress = true,
-      sync_pwd = true,
-      keep_netrw = false,
-    },
   },
   {
     "catppuccin/nvim",

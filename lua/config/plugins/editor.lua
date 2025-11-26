@@ -19,13 +19,16 @@ return {
       "TSUpdate",
       "TSUpdateSync"
     },
+    --- @class plugins.TSConfig: TSConfig
     opts = {
       highlight = { enable = true },
       indent = { enable = true },
+      folds = { enable = true },
       ensure_installed = {
         "lua",
         "luadoc",
         "luap",
+        "zig"
       }
     }
   },
@@ -70,14 +73,6 @@ return {
 
       telescope.load_extension("fzf")
       telescope.load_extension("ui-select")
-      telescope.load_extension("projects")
     end,
   },
-  {
-    "folke/trouble.nvim",
-    cmd = "Trouble",
-    opts = {
-      auto_preview = true
-    }
-  }
 }

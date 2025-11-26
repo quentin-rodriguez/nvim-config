@@ -1,13 +1,26 @@
 return {
   {
-    "folke/lazydev.nvim",
-    ft = "lua",
-    opts = {
-      library = {
-        { path = "snacks.nvim" },
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } }
-      }
-    }
+    "neovim/nvim-lspconfig",
+    event = { 'BufReadPre', 'BufNewFile' },
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "mason-org/mason-lspconfig.nvim",
+    },
+    config = function()
+      local lsp = require("config.utils.lsp")
+      local config = require("lspconfig")
+
+
+      require("mason-lspconfig").setup({
+        ensure_installed = lsp.servers(),
+
+        handlers = {
+          function(server_name)
+            require("config.lsp." .. server_name)(config, lsp)
+          end,
+        }
+      })
+    end,
   },
   {
     "saghen/blink.cmp",

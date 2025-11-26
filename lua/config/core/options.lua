@@ -1,4 +1,5 @@
 local g = vim.g
+local o = vim.o
 local opt = vim.opt
 
 vim.uv = vim.uv or vim.loop
@@ -26,6 +27,8 @@ opt.mouse = 'a'
 
 opt.showtabline = 0
 opt.updatetime = 100
+
+o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
 opt.sessionoptions = {
   "buffers",

@@ -2,8 +2,14 @@ local M = {}
 local fn = vim.fn
 local uv = vim.uv or vim.loop
 
+local separator = package.config:sub(1, 1)
+
+M.config_path = fn.stdpath("config")
+M.data_path = fn.stdpath("data")
+M.log_path = fn.stdpath("log")
+
 function M.join(...)
-  return vim.fs.normalize(table.concat({ ... }, '/'))
+  return table.concat({ ... }, separator)
 end
 
 function M.glob(expr, mods)
