@@ -1,9 +1,15 @@
 local fn = vim.fn
-local lazy_repo = 'https://github.com/folke/lazy.nvim.git'
-local lazy_path = fn.stdpath('data') .. '/lazy/lazy.nvim'
+local fs = require("config.utils.fs")
+local const = require("config.utils.constants")
 
-if not vim.uv.fs_stat(lazy_path) then
-  local out = fn.system({ 'git', 'clone', '--filter=blob:none', lazy_repo, lazy_path })
+if not fs.is_directory(const.LAZY_DIR) then
+  local out = fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    const.LAZY_REPO,
+    const.LAZY_DIR,
+  })
 
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
@@ -13,6 +19,13 @@ if not vim.uv.fs_stat(lazy_path) then
   end
 end
 
-vim.opt.rtp:prepend(lazy_path)
+vim.opt.rtp:prepend(const.LAZY_DIR)
 
-require('lazy').setup('config.plugins', {})
+require("lazy").setup("config.plugins", {
+  lockfile = const.LAZY_LOCKFILE,
+  state = const.LAZY_STATE,
+  change_detection = {
+    enable = false,
+    notify = false,
+  },
+})

@@ -4,6 +4,11 @@ local opt = vim.opt
 
 vim.uv = vim.uv or vim.loop
 
+g.mapleader = " "
+
+g.startuptime_tries = 5
+g.startuptime_event_width = 50
+
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
@@ -11,7 +16,7 @@ opt.termguicolors = true
 opt.cursorline = true
 opt.number = true
 opt.relativenumber = false
-opt.completeopt = 'menuone,noselect,noinsert,preview'
+opt.completeopt = "menuone,noselect,noinsert,preview"
 
 opt.wrap = true
 opt.list = true
@@ -23,7 +28,7 @@ opt.smartindent = true
 opt.shiftwidth = 4
 opt.tabstop = 4
 
-opt.mouse = 'a'
+opt.mouse = "a"
 
 opt.showtabline = 0
 opt.updatetime = 100
@@ -54,6 +59,5 @@ vim.diagnostic.config({
   virtual_text = {
     prefix = "●",
     spacing = 2,
-  }
+  },
 })
-

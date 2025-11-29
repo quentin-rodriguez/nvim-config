@@ -1,38 +1,5 @@
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
-    event = "VeryLazy",
-    build = ":TSUpdate",
-    main = "nvim-treesitter.configs",
-    cmd = {
-      "TSBufDisable",
-      "TSBufEnable",
-      "TSBufToggle",
-      "TSDisable",
-      "TSEnable",
-      "TSToggle",
-      "TSInstall",
-      "TSInstallInfo",
-      "TSInstallSync",
-      "TSModuleInfo",
-      "TSUninstall",
-      "TSUpdate",
-      "TSUpdateSync"
-    },
-    --- @class plugins.TSConfig: TSConfig
-    opts = {
-      highlight = { enable = true },
-      indent = { enable = true },
-      folds = { enable = true },
-      ensure_installed = {
-        "lua",
-        "luadoc",
-        "luap",
-        "zig"
-      }
-    }
-  },
-  {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -46,11 +13,11 @@ return {
 
       telescope.setup({
         defaults = {
-          path_display = { 'smart' },
+          path_display = { "smart" },
           sorting_strategy = "ascending",
           file_ignore_patterns = {
             ".git",
-            "node_modules"
+            "node_modules",
           },
           vimgrep_arguments = {
             "rg",

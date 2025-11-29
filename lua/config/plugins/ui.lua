@@ -57,7 +57,7 @@ return {
       sidebar_filetypes = {
         Carbon = {
           text = "Explorer",
-          align = "center"
+          align = "center",
         },
       },
       icons = {
@@ -67,11 +67,11 @@ return {
         },
         diagnostics = {
           [vim.diagnostic.severity.ERROR] = { enabled = true },
-          [vim.diagnostic.severity.WARN] = { enabled  = true },
+          [vim.diagnostic.severity.WARN] = { enabled = true },
           [vim.diagnostic.severity.INFO] = { enabled = false },
           [vim.diagnostic.severity.HINT] = { enabled = false },
         },
-      }
+      },
     },
   },
   {
@@ -79,12 +79,12 @@ return {
     event = "BufEnter",
     dependencies = "nvim-tree/nvim-web-devicons",
     opts = {
-     options = {
+      options = {
         icons_enabled = true,
         theme = "catppuccin",
         globalstatus = true,
       },
-    }
+    },
   },
   {
     "catppuccin/nvim",
