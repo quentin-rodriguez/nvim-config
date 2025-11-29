@@ -11,7 +11,7 @@ return function(config, lsp)
         completion = { callSnippet = "Replace" },
         diagnostics = {
           globals = {
-            "vim"
+            "vim",
           },
         },
         workspace = {
@@ -19,9 +19,9 @@ return function(config, lsp)
           library = {
             vim.fn.expand("$VIMRUNTIME/lua"),
             vim.fn.stdpath("config") .. "/lua",
-          }
-        }
-      }
-    }
+          },
+        },
+      },
+    },
   })
 end

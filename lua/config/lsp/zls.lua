@@ -8,6 +8,6 @@ return function(config, lsp)
         enable_autoprefix = true,
         warn_style = true,
       },
-    }
+    },
   })
 end

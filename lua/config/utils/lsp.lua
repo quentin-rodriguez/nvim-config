@@ -17,8 +17,7 @@ function M.get_capabilities()
   local success, blink = pcall(require, "blink.cmp")
 
   capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities.textDocument.completion.completionItem.insertReplaceSupport =
-    true
+  capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
   capabilities.textDocument.completion.completionItem.resolveSupport = {
     properties = {
       "documentation",
