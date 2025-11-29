@@ -16,5 +16,5 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: 2.3.1
-          args: --check
+          args: --check init.lua lua/
 
