@@ -6,6 +6,11 @@ selene = "0.29.0"
 [alias]
 selene = "https://github.com/quentin-rodriguez/mise-selene.git"
 
+[tasks.lint]
+description = "Lint lua scripts"
+run = "selene init.lua lua/ tests/"
+
+
 [tasks.format]
 description = "Format lua scripts"
-run = "stylua init.lua lua/"
+run = "stylua init.lua lua/ tests/"

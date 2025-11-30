@@ -1,0 +1,19 @@
+base: lua53
+
+lua_versions:
+  - lua54
+  - luajit
+
+globals:
+  package:
+    any: true
+  vim:
+    any: true
+  assert:
+    any: true
+  describe:
+    any: true
+  it:
+    any: true
+  jit:
+    any: true
