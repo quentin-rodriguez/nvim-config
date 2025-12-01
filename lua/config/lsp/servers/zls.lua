@@ -1,7 +1,6 @@
-return function(config, lsp)
-  config.zls.setup({
-    capabilities = lsp.capabilities(),
-    on_attach = lsp.on_attach,
+return function(capabilities)
+  return {
+    capabilities = capabilities,
     settings = {
       zls = {
         enable_snippets = true,
@@ -9,5 +8,5 @@ return function(config, lsp)
         warn_style = true,
       },
     },
-  })
+  }
 end

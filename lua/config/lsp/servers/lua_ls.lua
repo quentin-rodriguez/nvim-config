@@ -1,10 +1,6 @@
-return function(config, lsp)
-  config.lua_ls.setup({
-    on_attach = lsp.on_attach,
-    capabilities = lsp.capabilities(),
-    flags = {
-      debounce_text_changes = 100,
-    },
+return function(capabilities)
+  return {
+    capabilities = capabilities,
     settings = {
       Lua = {
         hint = { enable = true },
@@ -23,5 +19,5 @@ return function(config, lsp)
         },
       },
     },
-  })
+  }
 end

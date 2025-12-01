@@ -1,15 +1,5 @@
 return {
   {
-    "tamago324/lir.nvim",
-    event = "VimEnter",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-    },
-    cmd = {},
-    opts = {},
-  },
-  {
     "romgrk/barbar.nvim",
     event = "VimEnter",
     dependencies = {
@@ -85,6 +75,13 @@ return {
         globalstatus = true,
       },
     },
+  },
+  {
+    "goolord/alpha-nvim",
+    dependencies = "nvim-mini/mini.icons",
+    opts = function()
+      return require("alpha.themes.dashboard").config
+    end,
   },
   {
     "catppuccin/nvim",

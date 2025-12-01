@@ -6,6 +6,8 @@ vim.uv = vim.uv or vim.loop
 
 g.mapleader = " "
 
+g.lua_ls = true
+
 g.startuptime_tries = 5
 g.startuptime_event_width = 50
 

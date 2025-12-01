@@ -1,5 +1,9 @@
 --- Module containing all constants for Neovim configuration
---- @module config.utils.constants
+
+local fn = vim.fn
+local config_path = fn.stdpath("config")
+local state_path = fn.stdpath("state")
+local data_path = fn.stdpath("data")
 
 local fs = require("config.utils.fs")
 
@@ -8,13 +12,13 @@ local fs = require("config.utils.fs")
 --- @field LAZY_DIR string The path to lazy directory
 --- @field LAZY_LOCKFILE string The path of lazy lockfile
 --- @field LAZY_STATE string The path of the state of lazy plugins
---- @field LSP_PATH string The path to lsp settings
+--- @field LSP_SETTINGS string The path to lsp settings
 local constants = {
   LAZY_REPO = "https://github.com/folke/lazy.nvim.git",
-  LAZY_DIR = fs.join(fs.data_path, "lazy", "lazy.nvim"),
-  LAZY_LOCKFILE = fs.join(fs.config_path, "lazy-lock.json"),
-  LAZY_STATE = fs.join(fs.state_path, "lazy", "state.json"),
-  LSP_PATH = fs.join(fs.config_path, "lua", "config", "lsp"),
+  LAZY_DIR = fs.join(data_path, "lazy", "lazy.nvim"),
+  LAZY_LOCKFILE = fs.join(config_path, "lazy-lock.json"),
+  LAZY_STATE = fs.join(state_path, "lazy", "state.json"),
+  LSP_SETTINGS = fs.join(config_path, "lua", "config", "lsp"),
 }
 
 return setmetatable({}, {

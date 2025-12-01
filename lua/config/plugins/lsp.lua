@@ -7,18 +7,13 @@ return {
       "mason-org/mason-lspconfig.nvim",
     },
     config = function()
-      local lsp = require("config.utils.lsp")
-      local config = require("lspconfig")
+      local lsp = require("config.lsp")
 
       require("mason-lspconfig").setup({
         ensure_installed = lsp.servers(),
-
-        handlers = {
-          function(server_name)
-            require("config.lsp." .. server_name)(config, lsp)
-          end,
-        },
       })
+
+      lsp.init()
     end,
   },
   {

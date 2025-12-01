@@ -1,9 +1,8 @@
-local fn = vim.fn
 local fs = require("config.utils.fs")
 local const = require("config.utils.constants")
 
 if not fs.is_directory(const.LAZY_DIR) then
-  local out = fn.system({
+  local out = vim.fn.system({
     "git",
     "clone",
     "--filter=blob:none",
