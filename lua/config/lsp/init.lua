@@ -27,11 +27,11 @@ end
 
 --- @return string[]
 function M.servers()
-  if not fs.is_directory(const.LSP_SETTINGS) then
+  if not fs.is_directory(const.LSP_SERVERS) then
     return {}
   end
 
-  return fs.glob(const.LSP_SETTINGS .. "/*.lua", ":t:r")
+  return fs.glob(const.LSP_SERVERS .. "/*.lua", ":t:r")
 end
 
 function M.init()

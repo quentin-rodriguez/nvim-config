@@ -8,10 +8,6 @@ return {
     lazy = true,
   },
   {
-    "MunifTanjim/nui.nvim",
-    lazy = true,
-  },
-  {
     "folke/which-key.nvim",
     event = "VeryLazy",
     keys = {

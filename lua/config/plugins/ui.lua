@@ -1,65 +1,28 @@
 return {
   {
-    "romgrk/barbar.nvim",
-    event = "VimEnter",
-    dependencies = {
-      "lewis6991/gitsigns.nvim",
-      "nvim-tree/nvim-web-devicons",
-    },
-    cmd = {
-      "BarbarEnable",
-      "BarbarDisable",
-      "BufferNext",
-      "BufferPrevious",
-      "BufferGoto",
-      "BufferGotoPinned",
-      "BufferGotoUnpinned",
-      "BufferFirst",
-      "BufferLast",
-      "BufferMove",
-      "BufferMoveNext",
-      "BufferMovePrevious",
-      "BufferMoveStart",
-      "BufferPickDelete",
-      "BufferPin",
-      "BufferOrderByBufferNumber",
-      "BufferOrderByName",
-      "BufferOrderByDirectory",
-      "BufferOrderByLanguage",
-      "BufferOrderByWindowNumber",
-      "BufferClose",
-      "BufferDelete",
-      "BufferWipeout",
-      "BufferCloseAllButCurrent",
-      "BufferCloseAllButVisible",
-      "BufferCloseAllButPinned",
-      "BufferCloseAllButCurrentOrPinned",
-      "BufferCloseBuffersLeft",
-      "BufferCloseBuffersRight",
-      "BufferScrollLeft",
-      "BufferScrollRight",
-      "BufferRestore",
-    },
+    "akinsho/bufferline.nvim",
+    version = "*",
+    event = "VeryLazy",
     opts = {
-      focus_on_close = "right",
-      insert_at_end = true,
-      clickable = false,
-      sidebar_filetypes = {
-        Carbon = {
-          text = "Explorer",
-          align = "center",
-        },
-      },
-      icons = {
-        filetype = {
-          enabled = true,
-          custom_colors = true,
-        },
-        diagnostics = {
-          [vim.diagnostic.severity.ERROR] = { enabled = true },
-          [vim.diagnostic.severity.WARN] = { enabled = true },
-          [vim.diagnostic.severity.INFO] = { enabled = false },
-          [vim.diagnostic.severity.HINT] = { enabled = false },
+      options = {
+        mode = "buffers",
+        themable = true,
+        diagnostics = "nvim_lsp",
+        show_buffer_close_icons = true,
+        show_close_icon = false,
+        separator_style = "slant",
+        get_element_icon = function(element)
+          local icon, hl, _ = require("mini.icons").get("filetype", element.filetype)
+          return icon, hl
+        end,
+        offsets = {
+          {
+            filetype = "fyler",
+            text = "File Explorer",
+            text_align = "center",
+            highlight = "Directory",
+            separator = true,
+          },
         },
       },
     },
@@ -71,7 +34,7 @@ return {
     opts = {
       options = {
         icons_enabled = true,
-        theme = "catppuccin",
+        theme = "kanagawa",
         globalstatus = true,
       },
     },
@@ -84,14 +47,24 @@ return {
     end,
   },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    lazy = false,
-    priority = 1000,
+    "nvim-mini/mini.notify",
+    version = "*",
     opts = {
-      flavour = "mocha",
-      transparent_background = true,
-      term_colors = false,
+      lsp_progress = {
+        enable = true,
+        level = "INFO",
+      },
+      window = {
+        max_width_share = 0.5,
+        winblend = 35,
+      },
     },
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    name = "kanagawa",
+    priority = 1000,
+    cmd = "KanagawaCompile",
+    opts = {},
   },
 }
