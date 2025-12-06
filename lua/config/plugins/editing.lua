@@ -1,8 +1,9 @@
 return {
   {
     "nvim-mini/mini.pairs",
-    version = "*",
     event = "VeryLazy",
+    ---@module "mini.pairs"
+    ---@type table
     opts = {
       modes = {
         insert = true,
@@ -13,8 +14,9 @@ return {
   },
   {
     "nvim-mini/mini.surround",
-    version = "*",
     event = "VeryLazy",
+    ---@module "mini.surround"
+    ---@type table
     opts = {
       respect_selection_type = true,
       search_method = "cover_or_next",
@@ -25,6 +27,8 @@ return {
   {
     "folke/ts-comments.nvim",
     event = { "BufReadPre", "BufNewFile" },
+    ---@module "ts-comments"
+    ---@type TSCommentsOptions
     opts = {},
   },
   {
@@ -38,12 +42,6 @@ return {
       "TodoTelescope",
     },
     keys = {
-      { "<leader>xt", "<cmd>Trouble todo toggle<cr>", desc = "Todo (Trouble)" },
-      {
-        "<leader>xT",
-        "<cmd>Trouble todo toggle filter = {tag = (TODO,FIX,FIXME)}<cr>",
-        desc = "TODO/FIX/FIXME (Trouble)",
-      },
       { "<leader>st", "<cmd>TodoTelescope<cr>", desc = "Todo" },
       { "<leader>sT", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "TODO/FIX/FIXME" },
     },
@@ -53,6 +51,8 @@ return {
     "folke/lazydev.nvim",
     ft = "lua",
     cmd = "LazyDev",
+    ---@module "lazydev"
+    ---@type lazydev.Config
     opts = {
       library = {
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },

@@ -4,9 +4,12 @@ local opt = vim.opt
 
 vim.uv = vim.uv or vim.loop
 
-g.mapleader = " "
+g.mapleader = ","
+g.maplocalleader = ","
 
 g.lua_ls = true
+
+g.elixir = true
 
 g.startuptime_tries = 5
 g.startuptime_event_width = 50
@@ -35,7 +38,8 @@ opt.mouse = "a"
 opt.showtabline = 0
 opt.updatetime = 100
 
-o.formatexpr = "v:lua.require'conform'.formatexpr()"
+o.timeoutlen = 100
+o.formatexpr = "v:lua.require('conform').formatexpr()"
 
 opt.sessionoptions = {
   "buffers",

@@ -1,20 +1,22 @@
+---@diagnostic disable: missing-fields, assign-type-mismatch
 return {
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      { "mason-org/mason.nvim", opts = {} },
-      "mason-org/mason-lspconfig.nvim",
+    config = config.lsp.init,
+  },
+  {
+    "mason-org/mason.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {},
+  },
+  {
+    "mason-org/mason-lspconfig.nvim",
+    build = ":MasonUpdate",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {
+      ensure_installed = config.lsp.get_servers(),
     },
-    config = function()
-      local lsp = require("config.lsp")
-
-      require("mason-lspconfig").setup({
-        ensure_installed = lsp.servers(),
-      })
-
-      lsp.init()
-    end,
   },
   {
     "stevearc/conform.nvim",
@@ -29,6 +31,8 @@ return {
         desc = "Formatted files",
       },
     },
+    ---@module "conform"
+    ---@type conform.setupOpts
     opts = {
       formatters_by_ft = {
         lua = { "stylua" },
@@ -59,7 +63,8 @@ return {
       "TSUpdate",
       "TSUpdateSync",
     },
-    --- @type TreesitterConfig
+    ---@module "nvim-treesitter"
+    ---@type TSConfig
     opts = {
       highlight = { enable = true },
       indent = { enable = true },
@@ -77,6 +82,8 @@ return {
     cmd = "BlinkCmp",
     dependencies = "rafamadriz/friendly-snippets",
     versiom = "1.*",
+    ---@module "blink-cmp"
+    ---@type BlinkCmpConfig
     opts = {
       fuzzy = {
         implementation = "lua",
@@ -89,7 +96,7 @@ return {
       completion = {
         documentation = {
           auto_show = true,
-          auto_show_delay_ms = 200,
+          auto_show_delay_ms = 100,
         },
         ghost_text = {
           enabled = true,
@@ -100,7 +107,6 @@ return {
         default = {
           "lazydev",
           "lsp",
-          "path",
           "snippets",
         },
         providers = {

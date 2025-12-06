@@ -1,9 +1,21 @@
+---@diagnostic disable: missing-fields, assign-type-mismatch
 return {
   {
     "A7Lavinraj/fyler.nvim",
-    dependencies = "nvim-mini/mini.icons",
     branch = "stable",
-    lazy = false,
+    cmd = "Fyler",
+    keys = {
+      {
+        "<leader>e",
+        function()
+          require("fyler").toggle()
+        end,
+        mode = { "n", "i" },
+        desc = "Toggle file explorer",
+      },
+    },
+    ---@module "fyler"
+    ---@type FylerConfig
     opts = {
       views = {
         finder = {
@@ -22,7 +34,6 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },

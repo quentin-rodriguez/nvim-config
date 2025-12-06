@@ -1,8 +1,10 @@
+---@diagnostic disable: missing-fields, assign-type-mismatch
 return {
   {
     "akinsho/bufferline.nvim",
-    version = "*",
     event = "VeryLazy",
+    ---@module "bufferline"
+    ---@type bufferline.UserConfig
     opts = {
       options = {
         mode = "buffers",
@@ -30,25 +32,28 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     event = "BufEnter",
-    dependencies = "nvim-tree/nvim-web-devicons",
+    ---@module "lualine"
+    ---@type table
     opts = {
       options = {
         icons_enabled = true,
-        theme = "kanagawa",
+        theme = "duskfox",
         globalstatus = true,
       },
     },
   },
   {
     "goolord/alpha-nvim",
-    dependencies = "nvim-mini/mini.icons",
     opts = function()
+      ---@module "alpha"
+      ---@type table
       return require("alpha.themes.dashboard").config
     end,
   },
   {
     "nvim-mini/mini.notify",
-    version = "*",
+    ---@module "mini.notify"
+    ---@type table
     opts = {
       lsp_progress = {
         enable = true,
@@ -61,10 +66,12 @@ return {
     },
   },
   {
-    "rebelot/kanagawa.nvim",
-    name = "kanagawa",
+    "EdenEast/nightfox.nvim",
+    lazy = false,
     priority = 1000,
-    cmd = "KanagawaCompile",
     opts = {},
+    config = function()
+      vim.cmd.colorscheme("duskfox")
+    end,
   },
 }

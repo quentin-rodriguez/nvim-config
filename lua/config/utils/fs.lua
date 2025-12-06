@@ -16,6 +16,14 @@ function M.glob(expr, mods)
   end, files)
 end
 
+function M.readdir(path)
+  if not M.is_directory(path) then
+    return {}
+  end
+
+  return fn.readdir(path)
+end
+
 function M.is_file(path)
   local stat = uv.fs_stat(path)
   return stat and stat.type == "file"

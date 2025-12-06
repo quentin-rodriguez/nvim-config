@@ -26,19 +26,18 @@ local function get_capabilities()
 end
 
 --- @return string[]
-function M.servers()
-  if not fs.is_directory(const.LSP_SERVERS) then
-    return {}
-  end
+function M.get_servers()
+  local servers = fs.readdir(const.LSP_SERVERS)
 
-  return fs.glob(const.LSP_SERVERS .. "/*.lua", ":t:r")
+  return vim.tbl_map(function(server)
+    return server:gsub("%.lua$", "")
+  end, servers)
 end
 
 function M.init()
-  local servers = M.servers()
   local capabilities = get_capabilities()
 
-  for _, server in ipairs(servers) do
+  for _, server in ipairs(M.get_servers()) do
     local success, config = pcall(require, "config.lsp.servers." .. server)
 
     if success and type(vim.g[server]) == "boolean" then
