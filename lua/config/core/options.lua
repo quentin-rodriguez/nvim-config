@@ -8,6 +8,8 @@ g.mapleader = ","
 g.maplocalleader = ","
 
 g.lua_ls = true
+g.elp = true
+g.denols = true
 
 g.elixir = true
 
