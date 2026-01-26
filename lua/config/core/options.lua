@@ -1,4 +1,5 @@
 local g = vim.g
+local go = vim.go
 local o = vim.o
 local opt = vim.opt
 
@@ -10,7 +11,7 @@ g.maplocalleader = ","
 g.lua_ls = true
 g.elp = true
 g.denols = true
-
+g.phpactor = true
 g.elixir = true
 
 g.startuptime_tries = 5
@@ -18,6 +19,8 @@ g.startuptime_event_width = 50
 
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
+
+go.loadplugins = true
 
 opt.termguicolors = true
 opt.cursorline = true

@@ -3,6 +3,19 @@ return {
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
+    keys = {
+      { "<C-n>", "<cmd>BufferLineCycleNext<CR>", { desc = "Buffer Next" } },
+      { "<C-p>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Buffer Previous" } },
+      { "<C-1>", "<cmd>BufferLineGoToBuffer 1<CR>", { desc = "Go to buffer 1" } },
+      { "<C-2>", "<cmd>BufferLineGoToBuffer 2<CR>", { desc = "Go to buffer 2" } },
+      { "<C-3>", "<cmd>BufferLineGoToBuffer 3<CR>", { desc = "Go to buffer 3" } },
+      { "<C-4>", "<cmd>BufferLineGoToBuffer 4<CR>", { desc = "Go to buffer 4" } },
+      { "<C-5>", "<cmd>BufferLineGoToBuffer 5<CR>", { desc = "Go to buffer 5" } },
+      { "<C-6>", "<cmd>BufferLineGoToBuffer 6<CR>", { desc = "Go to buffer 6" } },
+      { "<C-7>", "<cmd>BufferLineGoToBuffer 7<CR>", { desc = "Go to buffer 7" } },
+      { "<C-8>", "<cmd>BufferLineGoToBuffer 8<CR>", { desc = "Go to buffer 8" } },
+      { "<C-9>", "<cmd>BufferLineGoToBuffer 9<CR>", { desc = "Go to buffer 9" } },
+    },
     ---@module "bufferline"
     ---@type bufferline.UserConfig
     opts = {

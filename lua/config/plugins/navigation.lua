@@ -6,7 +6,7 @@ return {
     cmd = "Fyler",
     keys = {
       {
-        "<leader>e",
+        "<C-e>",
         function()
           require("fyler").toggle()
         end,
@@ -19,11 +19,15 @@ return {
     opts = {
       views = {
         finder = {
+          follow_current_file = true,
+          close_on_select = false,
+          default_explorer = true,
+          delete_to_trash = true,
           win = {
             kind = "split_left",
             kinds = {
               split_left = {
-                width = "15%",
+                width = "12%",
               },
             },
           },
