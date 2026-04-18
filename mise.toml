@@ -1,16 +1,21 @@
 [tools]
+nvim = "latest"
 lua = "latest"
 stylua = "2.3.1"
 selene = "0.29.0"
 
 [tool_alias]
+nvim = "https://github.com/richin13/asdf-neovim.git"
 selene = "https://github.com/quentin-rodriguez/mise-selene.git"
 
 [tasks.lint]
 description = "Lint lua scripts"
 run = "selene init.lua lua/ tests/"
 
-
 [tasks.format]
 description = "Format lua scripts"
 run = "stylua init.lua lua/ tests/"
+
+[tasks.test]
+description = ""
+run = "nvim -l tests/minit.lua --minitest"

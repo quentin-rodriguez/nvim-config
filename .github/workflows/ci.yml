@@ -41,6 +41,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        uses: jdx/mise-action@v3
+      - uses: jdx/mise-action@v3
       - name: Run tests
         run: mise run test
