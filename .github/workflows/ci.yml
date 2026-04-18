@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v3
+      - uses: jdx/mise-action@v4
       - name: Check formatting
         run: mise run format -- --check
 
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v3
+      - uses: jdx/mise-action@v4
       - name: Run linter
         run: mise run lint
 
@@ -41,6 +41,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        uses: jdx/mise-action@v3
+        uses: jdx/mise-action@v4
       - name: Run tests
         run: mise run test
