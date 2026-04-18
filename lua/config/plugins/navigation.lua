@@ -1,39 +1,34 @@
 ---@diagnostic disable: missing-fields, assign-type-mismatch
 return {
   {
-    "A7Lavinraj/fyler.nvim",
-    branch = "stable",
-    cmd = "Fyler",
-    keys = {
-      {
-        "<C-e>",
-        function()
-          require("fyler").toggle()
-        end,
-        mode = { "n", "i" },
-        desc = "Toggle file explorer",
-      },
-    },
-    ---@module "fyler"
-    ---@type FylerConfig
+    "stevearc/oil.nvim",
+    lazy = false,
+    dependencies = "nvim-tree/nvim-web-devicons",
     opts = {
-      views = {
-        finder = {
-          follow_current_file = true,
-          close_on_select = false,
-          default_explorer = true,
-          delete_to_trash = true,
-          win = {
-            kind = "split_left",
-            kinds = {
-              split_left = {
-                width = "12%",
-              },
-            },
-          },
-        },
+      default_file_explorer = true,
+      delete_to_trash = true,
+      use_default_keymaps = false,
+      columns = { "icon", "size", "mtime" },
+      float = { padding = 2, border = "rounded" },
+      view_options = { show_hidden = true },
+      keymaps = {
+        ["<CR>"] = "actions.select",
+        ["<C-p>"] = "actions.preview",
+        ["<C-c>"] = "actions.close",
+        ["-"] = "actions.parent",
+        ["g."] = "actions.toggle_hidden",
+        ["gx"] = "actions.open_external",
+        ["<C-s>"] = { "actions.select", opts = { vertical = true } },
       },
     },
+    config = function(_, opts)
+      local oil = require("oil")
+
+      oil.setup(opts)
+      vim.keymap.set("n", "e", function()
+        oil.toggle_float()
+      end, { desc = "Oil" })
+    end,
   },
   {
     "nvim-telescope/telescope.nvim",
