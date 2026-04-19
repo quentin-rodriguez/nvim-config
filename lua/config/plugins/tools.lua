@@ -4,10 +4,34 @@ return {
     "folke/persistence.nvim",
     event = "BufReadPre",
     keys = {
-      { "<leader>qs", function() end, desc = "Restore session" },
-      { "<leader>qS", function() end, desc = "Select session" },
-      { "<leader>ql", function() end, desc = "Restore last session" },
-      { "<leader>qd", function() end, desc = "Don't save current session" },
+      {
+        "<leader>qs",
+        function()
+          require("persistence").load()
+        end,
+        desc = "Restore session",
+      },
+      {
+        "<leader>qS",
+        function()
+          require("persistence").select()
+        end,
+        desc = "Select session",
+      },
+      {
+        "<leader>ql",
+        function()
+          require("persistence").load({ last = true })
+        end,
+        desc = "Restore last session",
+      },
+      {
+        "<leader>qd",
+        function()
+          require("persistence").stop()
+        end,
+        desc = "Don't save current session",
+      },
     },
     --- @module "persistence"
     --- @type Persistence.Config
@@ -58,6 +82,11 @@ return {
   },
   {
     "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-neotest/neotest-plenary",
+      "jfpedroza/neotest-elixir",
+    },
     keys = {
       {
         "<leader>tr",

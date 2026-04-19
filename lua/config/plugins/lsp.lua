@@ -36,6 +36,11 @@ return {
     opts = {
       formatters_by_ft = {
         lua = { "stylua" },
+        zig = { "zigfmt" },
+        rust = { "rustfmt" },
+        elixir = { "mix" },
+        erlang = { "erlfmt" },
+        php = { "php_cs_fixer" },
       },
       format_on_save = {
         timeout_ms = 200,
@@ -74,6 +79,13 @@ return {
         "luadoc",
         "luap",
         "zig",
+        "rust",
+        "elixir",
+        "eex",
+        "heex",
+        "erlang",
+        "php",
+        "phpdoc",
       },
     },
   },
@@ -117,6 +129,22 @@ return {
           },
         },
       },
+    },
+  },
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^5",
+    ft = "rust",
+  },
+  {
+    "elixir-tools/elixir-tools.nvim",
+    version = "*",
+    ft = { "elixir", "eex", "heex", "surface" },
+    dependencies = "nvim-lua/plenary.nvim",
+    ---@module "elixir"
+    opts = {
+      elixirls = { enable = true },
+      nextls = { enable = false },
     },
   },
 }

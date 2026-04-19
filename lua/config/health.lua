@@ -16,7 +16,7 @@ local function check_nvim_vsn()
   if fn.has("nvim-0.11.2") == 1 then
     ok("Using Neovim `>= 0.11.2`")
   else
-    error("Neovin `>= 0.11.2` is required")
+    error("Neovin `>= 0.11.2` is required`")
   end
 end
 
