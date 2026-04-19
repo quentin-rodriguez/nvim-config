@@ -3,7 +3,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
-    config = config.lsp.init,
+    config = require("config.lsp").init,
   },
   {
     "mason-org/mason.nvim",
@@ -15,7 +15,7 @@ return {
     build = ":MasonUpdate",
     event = { "BufReadPre", "BufNewFile" },
     opts = {
-      ensure_installed = config.lsp.get_servers(),
+      ensure_installed = require("config.lsp").get_servers(),
     },
   },
   {
