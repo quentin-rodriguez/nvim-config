@@ -46,6 +46,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: folke/github/neovim@main
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y libreadline-dev
       - uses: actions/cache@v5
         with:
           path: .tests
