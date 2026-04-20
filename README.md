@@ -2,8 +2,8 @@
  
 > Personal Neovim configuration — managed with [lazy.nvim](https://github.com/folke/lazy.nvim).
  
-![Neovim](https://img.shields.io/badge/Neovim-0.11.4-25c600?style=for-the-badge&labelColor=%23555555&logo=neovim&cacheSeconds=10000)
-![Lua](https://img.shields.io/badge/Lua-5.4.8-0019c6?style=for-the-badge&labelColor=%23555555&logo=lua&cacheSeconds=10000)
+![Neovim](https://img.shields.io/badge/Neovim-0.11.4-25c600?style=flat-square&labelColor=%23555555&logo=neovim&cacheSeconds=10000)
+![Lua](https://img.shields.io/badge/Lua-5.4.8-0019c6?style=flat-square&labelColor=%23555555&logo=lua&cacheSeconds=10000)
  
 ## Installation
  
