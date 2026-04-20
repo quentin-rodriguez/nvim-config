@@ -52,4 +52,4 @@ jobs:
           neovim: true
           version: stable
       - name: Run tests
-        run: nvim -l tests/minit.lua --minitest
+        run: nvim -l tests/minit.lua
