@@ -1,5 +1,6 @@
 #!/usr/bin/env -S nvim -l
 
+local uv = vim.uv or vim.loop
 local fn = vim.fn
 local env = vim.env
 
@@ -12,8 +13,8 @@ else
   load(fn.system("curl -s https://raw.githubusercontent.com/folke/lazy.nvim/main/bootstrap.lua"), "bootstrap.lua")()
 end
 
-require("lazy.minit").busted({
+require("lazy.minit").setup({
   spec = {
-    { "nvim-lua/plenary.nvim", lazy = false },
+    dir = uv.cwd(),
   },
 })
