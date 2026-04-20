@@ -45,7 +45,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install Neovim
-        uses: MunifTanjim/setup-neovim-action@v1
+      - uses: folke/github/neovim@main
+      - uses: actions/cache@v5
+        with:
+          path: .tests
+          key: ${{ runner.os }}-tests-${{ hashFiles('tests/minit.lua') }}
       - name: Run tests
         run: nvim -l tests/minit.lua
