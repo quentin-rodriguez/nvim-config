@@ -1,1 +1,0 @@
-return {version=12,pkgs={{source="rockspec",name="luassert",spec={"luassert",lazy=false,build="rockspec",},file="luassert-scm-1.rockspec",dir="/home/qrodriguez/.config/nvim/.tests/data/nvim/lazy/luassert",},},}

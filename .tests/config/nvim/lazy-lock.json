@@ -1,6 +1,0 @@
-{
-  "hererocks": { "branch": "master", "commit": "3db37265c3839cbd4d27fc73f92fa7b58bc3a76f" },
-  "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
-  "luassert": { "branch": "master", "commit": "8e18d95f9aef8fb28cedfcf5c43efbf3e10d330c" },
-  "mini.test": { "branch": "main", "commit": "f50e7b7acca6435208af7d21f7258506af89a6c0" }
-}
