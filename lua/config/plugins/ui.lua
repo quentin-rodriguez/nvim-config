@@ -30,15 +30,6 @@ return {
           local icon, hl, _ = require("mini.icons").get("filetype", element.filetype)
           return icon, hl
         end,
-        offsets = {
-          {
-            filetype = "fyler",
-            text = "File Explorer",
-            text_align = "center",
-            highlight = "Directory",
-            separator = true,
-          },
-        },
       },
     },
   },
@@ -46,7 +37,7 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "BufEnter",
     ---@module "lualine"
-    ---@type table
+    ---@type LualineRefreshOpts
     opts = {
       options = {
         icons_enabled = true,

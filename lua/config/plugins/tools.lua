@@ -1,86 +1,6 @@
 --- @diagnostic disable: missing-fields, assign-type-mismatch
 return {
   {
-    "folke/persistence.nvim",
-    event = "BufReadPre",
-    keys = {
-      {
-        "<leader>qs",
-        function()
-          require("persistence").load()
-        end,
-        desc = "Restore session",
-      },
-      {
-        "<leader>qS",
-        function()
-          require("persistence").select()
-        end,
-        desc = "Select session",
-      },
-      {
-        "<leader>ql",
-        function()
-          require("persistence").load({ last = true })
-        end,
-        desc = "Restore last session",
-      },
-      {
-        "<leader>qd",
-        function()
-          require("persistence").stop()
-        end,
-        desc = "Don't save current session",
-      },
-    },
-    --- @module "persistence"
-    --- @type Persistence.Config
-    opts = {},
-  },
-  {
-    "OXY2DEV/markview.nvim",
-    ft = "markdown",
-    cmd = "Markview",
-    --- @module "markview"
-    --- @type markview.config
-    opts = {
-      icon_provider = "mini",
-    },
-  },
-  {
-    "stevearc/overseer.nvim",
-    cmd = {
-      "OverseerOpen",
-      "OverseerClose",
-      "OverseerToggle",
-      "OverseerSaveBundle",
-      "OverseerLoadBundle",
-      "OverseerDeleteBundle",
-      "OverseerRunCmd",
-      "OverseerRun",
-      "OverseerInfo",
-      "OverseerBuild",
-      "OverseerQuickAction",
-      "OverseerTaskAction",
-      "OverseerClearCache",
-    },
-    --- @module "overseer"
-    --- @type overseer.SetupOpts
-    opts = {
-      component_aliases = {
-        default_neotest = {
-          "on_exit_set_status",
-          "on_complete_notify",
-          "on_complete_dispose",
-        },
-      },
-      strategy = {
-        "toggleterm",
-        direction = "float",
-      },
-    },
-  },
-  {
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-neotest/nvim-nio",
@@ -133,13 +53,6 @@ return {
         output = {
           enabled = true,
           open_on_run = true,
-        },
-        consumers = {
-          overseer = require("neotest.consumers.overseer"),
-        },
-        overseer = {
-          enabled = true,
-          force_default = true,
         },
       }
     end,

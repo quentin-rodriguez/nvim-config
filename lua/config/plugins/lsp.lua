@@ -1,24 +1,6 @@
 ---@diagnostic disable: missing-fields, assign-type-mismatch
 return {
   {
-    "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
-    config = require("config.lsp").init,
-  },
-  {
-    "mason-org/mason.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {},
-  },
-  {
-    "mason-org/mason-lspconfig.nvim",
-    build = ":MasonUpdate",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {
-      ensure_installed = require("config.lsp").get_servers(),
-    },
-  },
-  {
     "stevearc/conform.nvim",
     event = "BufWritePre",
     cmd = "ConformInfo",
@@ -92,13 +74,18 @@ return {
   {
     "saghen/blink.cmp",
     cmd = "BlinkCmp",
-    dependencies = "rafamadriz/friendly-snippets",
-    versiom = "1.*",
-    ---@module "blink-cmp"
-    ---@type BlinkCmpConfig
+    dependencies = "saghen/blink.lib",
+    build = function()
+      require("blink.cmp").build():pwait()
+    end,
+    init = function()
+      require("config.lsp").init()
+    end,
+    ---@module "blink.cmp"
+    ---@type blink.cmp.Config
     opts = {
       fuzzy = {
-        implementation = "lua",
+        implementation = "prefer_rust_with_warning",
         sorts = {
           "exact",
           "score",
@@ -117,7 +104,6 @@ return {
       },
       sources = {
         default = {
-          "lazydev",
           "lsp",
           "snippets",
         },
@@ -129,22 +115,6 @@ return {
           },
         },
       },
-    },
-  },
-  {
-    "mrcjkb/rustaceanvim",
-    version = "^5",
-    ft = "rust",
-  },
-  {
-    "elixir-tools/elixir-tools.nvim",
-    version = "*",
-    ft = { "elixir", "eex", "heex", "surface" },
-    dependencies = "nvim-lua/plenary.nvim",
-    ---@module "elixir"
-    opts = {
-      elixirls = { enable = true },
-      nextls = { enable = false },
     },
   },
 }
