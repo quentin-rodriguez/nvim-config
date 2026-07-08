@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/lua,vim
 # Edit at https://www.toptal.com/developers/gitignore?templates=lua,vim
 
+.tests/
+
 ### Lua ###
 # Compiled Lua sources
 luac.out
